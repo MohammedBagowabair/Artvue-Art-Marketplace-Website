@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse the catalogue — Artvue</title>
+  <meta name="description" content="Filter Artvue’s demo catalogue by category, style, medium, price, size, and orientation. Fictional artists, illustrative prices, WhatsApp inquiries.">
+  <link rel="canonical" href="https://mohammedbagowabair.github.io/Artvue-Art-Marketplace-Website/browse.html">
+  <meta property="og:title" content="Browse the catalogue — Artvue">
+  <meta property="og:description" content="Filter Artvue’s demo catalogue by category, style, medium, price, size, and orientation. Fictional artists, illustrative prices, WhatsApp inquiries.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohammedbagowabair.github.io/Artvue-Art-Marketplace-Website/browse.html">
+  <meta property="og:image" content="https://mohammedbagowabair.github.io/Artvue-Art-Marketplace-Website/images/art/harbour-weather-1100.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f3efe6">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="images/art/harbour-weather-640.webp" imagesrcset="images/art/harbour-weather-640.webp 640w, images/art/harbour-weather-1100.webp 1100w" imagesizes="(max-width: 720px) 340px, 28vw">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<p class="demo-note">Demo marketplace: fictional artists and illustrative prices.</p>
+<header class="site-header">
+  <a class="logo" href="index.html">Artvue<span></span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" aria-label="Primary"><a href="browse.html?category=Painting">Paintings</a><a href="browse.html?category=Drawing">Drawings</a><a href="browse.html?category=Photography">Photography</a><a href="browse.html?category=Prints">Prints</a><a href="browse.html?category=Sculpture">Sculpture</a><a href="index.html#artists">Artists</a><a href="about.html">About</a><a href="sell.html">Sell</a></nav>
+  <div class="header-tools">
+    <a class="tool-search" href="browse.html">Search</a>
+    <a href="browse.html?saved=1">Saved <span class="saved-count" id="saved-count">0</span></a>
+    <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20have%20a%20question%20about%20the%20marketplace.">Contact</a>
+  </div>
+</header>
+<div class="backdrop"></div>
+<main id="content" class="page">
+  <h1 class="page-title">The catalogue</h1>
+  <p class="page-intro">Filter by category, style, medium, price, size, and orientation. Sort by price or year. Saving a work keeps it on this device.</p>
+  <div class="browse-layout">
+    
+<form id="filters" class="filters" action="browse.html" method="get">
+  <div class="drawer-bar">
+    <h2>Filters</h2>
+    <button class="drawer-close" type="button">Close</button>
+  </div>
+  <fieldset><legend>Category</legend><label><input type="checkbox" name="category" value="Painting"> Painting</label><label><input type="checkbox" name="category" value="Drawing"> Drawing</label><label><input type="checkbox" name="category" value="Photography"> Photography</label><label><input type="checkbox" name="category" value="Prints"> Prints</label><label><input type="checkbox" name="category" value="Sculpture"> Sculpture</label></fieldset>
+  <fieldset><legend>Style</legend><label><input type="checkbox" name="style" value="Abstract"> Abstract</label><label><input type="checkbox" name="style" value="Figurative"> Figurative</label><label><input type="checkbox" name="style" value="Landscape"> Landscape</label><label><input type="checkbox" name="style" value="Pop"> Pop</label><label><input type="checkbox" name="style" value="Minimal"> Minimal</label></fieldset>
+  <fieldset><legend>Medium</legend><label><input type="checkbox" name="medium" value="Oil"> Oil</label><label><input type="checkbox" name="medium" value="Acrylic"> Acrylic</label><label><input type="checkbox" name="medium" value="Watercolour"> Watercolour</label><label><input type="checkbox" name="medium" value="Ink"> Ink</label><label><input type="checkbox" name="medium" value="Photograph"> Photograph</label><label><input type="checkbox" name="medium" value="Pigment print"> Pigment print</label><label><input type="checkbox" name="medium" value="Ceramic"> Ceramic</label></fieldset>
+  <fieldset><legend>Price</legend><label><input type="radio" name="price" value="under-500"> Under $500</label><label><input type="radio" name="price" value="500-1500"> $500 – $1,500</label><label><input type="radio" name="price" value="1500-4000"> $1,500 – $4,000</label><label><input type="radio" name="price" value="over-4000"> Above $4,000</label></fieldset>
+  <fieldset><legend>Size</legend><label><input type="checkbox" name="size" value="Small"> Small</label><label><input type="checkbox" name="size" value="Medium"> Medium</label><label><input type="checkbox" name="size" value="Large"> Large</label></fieldset>
+  <fieldset><legend>Orientation</legend><label><input type="checkbox" name="orientation" value="Portrait"> Portrait</label><label><input type="checkbox" name="orientation" value="Landscape"> Landscape</label><label><input type="checkbox" name="orientation" value="Square"> Square</label></fieldset>
+  <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><button class="btn" id="show-works" type="submit">Show works</button><button class="btn btn-ghost" id="clear-filters" type="button">Clear</button></p>
+</form>
+    <div>
+      <div class="toolbar">
+        <button class="btn btn-ghost filter-open" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
+        <p id="result-count">24 works</p>
+        <label class="sort-field"><span class="vh">Search</span>
+          <input id="q" type="search" name="q" placeholder="Title or artist" aria-label="Search title or artist">
+        </label>
+        <label class="sort-field">Sort
+          <select id="sort" name="sort" aria-label="Sort works">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price, low to high</option>
+            <option value="price-desc">Price, high to low</option>
+            <option value="newest">Newest</option>
+          </select>
+        </label>
+      </div>
+      <div class="works" id="works"><article class="card" data-id="harbour-weather" data-title="Harbour Weather" data-artist-name="Priya Menon" data-category="Painting" data-style="Landscape" data-medium="Oil" data-size="Large" data-orientation="Landscape" data-price="6400" data-year="2025" data-order="0">
+  <div class="card-visual">
+    <a href="artwork.html?id=harbour-weather"><img src="images/art/harbour-weather-640.webp" srcset="images/art/harbour-weather-640.webp 640w, images/art/harbour-weather-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="734" alt="Harbour Weather, Oil on canvas by Priya Menon" loading="eager" decoding="async" fetchpriority="high"></a>
+    
+    <button class="fav" type="button" data-fav="harbour-weather" aria-pressed="false" aria-label="Save Harbour Weather"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=harbour-weather">Harbour Weather</a></h3>
+    <p class="by"><a href="artist.html?artist=priya-menon">Priya Menon</a></p>
+    <p class="meta">Oil on canvas · 140 × 93 cm</p>
+    <p class="price">$6,400</p>
+  </div>
+</article><article class="card" data-id="north-wall" data-title="Room with a North Wall" data-artist-name="Lina Voss" data-category="Painting" data-style="Abstract" data-medium="Oil" data-size="Large" data-orientation="Portrait" data-price="4800" data-year="2025" data-order="1">
+  <div class="card-visual">
+    <a href="artwork.html?id=north-wall"><img src="images/art/north-wall-640.webp" srcset="images/art/north-wall-640.webp 640w, images/art/north-wall-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1466" alt="Room with a North Wall, Oil on linen by Lina Voss" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="north-wall" aria-pressed="false" aria-label="Save Room with a North Wall"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=north-wall">Room with a North Wall</a></h3>
+    <p class="by"><a href="artist.html?artist=lina-voss">Lina Voss</a></p>
+    <p class="meta">Oil on linen · 98 × 130 cm</p>
+    <p class="price">$4,800</p>
+  </div>
+</article><article class="card" data-id="after-the-fair" data-title="After the Fair" data-artist-name="Lina Voss" data-category="Painting" data-style="Abstract" data-medium="Oil" data-size="Large" data-orientation="Portrait" data-price="3600" data-year="2023" data-order="2">
+  <div class="card-visual">
+    <a href="artwork.html?id=after-the-fair"><img src="images/art/after-the-fair-640.webp" srcset="images/art/after-the-fair-640.webp 640w, images/art/after-the-fair-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1394" alt="After the Fair, Oil on canvas by Lina Voss" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="after-the-fair" aria-pressed="false" aria-label="Save After the Fair"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=after-the-fair">After the Fair</a></h3>
+    <p class="by"><a href="artist.html?artist=lina-voss">Lina Voss</a></p>
+    <p class="meta">Oil on canvas · 87 × 110 cm</p>
+    <p class="price">$3,600</p>
+  </div>
+</article><article class="card" data-id="peaches" data-title="Peaches and Two Bottles" data-artist-name="Mateo Ruiz" data-category="Painting" data-style="Figurative" data-medium="Acrylic" data-size="Medium" data-orientation="Portrait" data-price="3900" data-year="2024" data-order="3">
+  <div class="card-visual">
+    <a href="artwork.html?id=peaches"><img src="images/art/peaches-640.webp" srcset="images/art/peaches-640.webp 640w, images/art/peaches-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1650" alt="Peaches and Two Bottles, Acrylic on canvas by Mateo Ruiz" loading="lazy" decoding="async"></a>
+    <p class="sold-mark">Sold</p>
+    <button class="fav" type="button" data-fav="peaches" aria-pressed="false" aria-label="Save Peaches and Two Bottles"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=peaches">Peaches and Two Bottles</a></h3>
+    <p class="by"><a href="artist.html?artist=mateo-ruiz">Mateo Ruiz</a></p>
+    <p class="meta">Acrylic on canvas · 67 × 100 cm</p>
+    <p class="price">$3,900</p>
+  </div>
+</article><article class="card" data-id="night-harbour" data-title="Night Harbour" data-artist-name="Lina Voss" data-category="Painting" data-style="Abstract" data-medium="Oil" data-size="Large" data-orientation="Landscape" data-price="5200" data-year="2026" data-order="4">
+  <div class="card-visual">
+    <a href="artwork.html?id=night-harbour"><img src="images/art/night-harbour-640.webp" srcset="images/art/night-harbour-640.webp 640w, images/art/night-harbour-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="738" alt="Night Harbour, Oil on canvas by Lina Voss" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="night-harbour" aria-pressed="false" aria-label="Save Night Harbour"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=night-harbour">Night Harbour</a></h3>
+    <p class="by"><a href="artist.html?artist=lina-voss">Lina Voss</a></p>
+    <p class="meta">Oil on canvas · 150 × 101 cm</p>
+    <p class="price">$5,200</p>
+  </div>
+</article><article class="card" data-id="monsoon-field" data-title="Monsoon Field" data-artist-name="Priya Menon" data-category="Painting" data-style="Landscape" data-medium="Oil" data-size="Large" data-orientation="Square" data-price="4100" data-year="2024" data-order="5">
+  <div class="card-visual">
+    <a href="artwork.html?id=monsoon-field"><img src="images/art/monsoon-field-640.webp" srcset="images/art/monsoon-field-640.webp 640w, images/art/monsoon-field-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1100" alt="Monsoon Field, Oil on linen by Priya Menon" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="monsoon-field" aria-pressed="false" aria-label="Save Monsoon Field"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=monsoon-field">Monsoon Field</a></h3>
+    <p class="by"><a href="artist.html?artist=priya-menon">Priya Menon</a></p>
+    <p class="meta">Oil on linen · 120 × 120 cm</p>
+    <p class="price">$4,100</p>
+  </div>
+</article><article class="card" data-id="salt-grammar" data-title="Salt Grammar" data-artist-name="Jonah Adeyemi" data-category="Painting" data-style="Abstract" data-medium="Acrylic" data-size="Large" data-orientation="Landscape" data-price="3100" data-year="2025" data-order="6">
+  <div class="card-visual">
+    <a href="artwork.html?id=salt-grammar"><img src="images/art/salt-grammar-640.webp" srcset="images/art/salt-grammar-640.webp 640w, images/art/salt-grammar-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="738" alt="Salt Grammar, Acrylic on canvas by Jonah Adeyemi" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="salt-grammar" aria-pressed="false" aria-label="Save Salt Grammar"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=salt-grammar">Salt Grammar</a></h3>
+    <p class="by"><a href="artist.html?artist=jonah-adeyemi">Jonah Adeyemi</a></p>
+    <p class="meta">Acrylic on canvas · 120 × 81 cm</p>
+    <p class="price">$3,100</p>
+  </div>
+</article><article class="card" data-id="procession" data-title="Procession Yellow" data-artist-name="Mateo Ruiz" data-category="Painting" data-style="Abstract" data-medium="Oil" data-size="Large" data-orientation="Square" data-price="4400" data-year="2026" data-order="7">
+  <div class="card-visual">
+    <a href="artwork.html?id=procession"><img src="images/art/procession-640.webp" srcset="images/art/procession-640.webp 640w, images/art/procession-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1100" alt="Procession Yellow, Oil on canvas by Mateo Ruiz" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="procession" aria-pressed="false" aria-label="Save Procession Yellow"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=procession">Procession Yellow</a></h3>
+    <p class="by"><a href="artist.html?artist=mateo-ruiz">Mateo Ruiz</a></p>
+    <p class="meta">Oil on canvas · 140 × 140 cm</p>
+    <p class="price">$4,400</p>
+  </div>
+</article><article class="card" data-id="profile-august" data-title="Profile in August" data-artist-name="Mateo Ruiz" data-category="Painting" data-style="Figurative" data-medium="Acrylic" data-size="Medium" data-orientation="Portrait" data-price="2750" data-year="2025" data-order="8">
+  <div class="card-visual">
+    <a href="artwork.html?id=profile-august"><img src="images/art/profile-august-640.webp" srcset="images/art/profile-august-640.webp 640w, images/art/profile-august-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1364" alt="Profile in August, Acrylic on canvas by Mateo Ruiz" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="profile-august" aria-pressed="false" aria-label="Save Profile in August"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=profile-august">Profile in August</a></h3>
+    <p class="by"><a href="artist.html?artist=mateo-ruiz">Mateo Ruiz</a></p>
+    <p class="meta">Acrylic on canvas · 73 × 90 cm</p>
+    <p class="price">$2,750</p>
+  </div>
+</article><article class="card" data-id="soft-partition" data-title="Soft Partition" data-artist-name="Jonah Adeyemi" data-category="Painting" data-style="Abstract" data-medium="Acrylic" data-size="Medium" data-orientation="Landscape" data-price="1980" data-year="2024" data-order="9">
+  <div class="card-visual">
+    <a href="artwork.html?id=soft-partition"><img src="images/art/soft-partition-640.webp" srcset="images/art/soft-partition-640.webp 640w, images/art/soft-partition-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="826" alt="Soft Partition, Acrylic and ink on canvas by Jonah Adeyemi" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="soft-partition" aria-pressed="false" aria-label="Save Soft Partition"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=soft-partition">Soft Partition</a></h3>
+    <p class="by"><a href="artist.html?artist=jonah-adeyemi">Jonah Adeyemi</a></p>
+    <p class="meta">Acrylic and ink on canvas · 90 × 68 cm</p>
+    <p class="price">$1,980</p>
+  </div>
+</article><article class="card" data-id="lampblack" data-title="Lampblack and Lemon" data-artist-name="Jonah Adeyemi" data-category="Painting" data-style="Abstract" data-medium="Acrylic" data-size="Medium" data-orientation="Portrait" data-price="2400" data-year="2026" data-order="10">
+  <div class="card-visual">
+    <a href="artwork.html?id=lampblack"><img src="images/art/lampblack-640.webp" srcset="images/art/lampblack-640.webp 640w, images/art/lampblack-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1560" alt="Lampblack and Lemon, Acrylic on canvas by Jonah Adeyemi" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="lampblack" aria-pressed="false" aria-label="Save Lampblack and Lemon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=lampblack">Lampblack and Lemon</a></h3>
+    <p class="by"><a href="artist.html?artist=jonah-adeyemi">Jonah Adeyemi</a></p>
+    <p class="meta">Acrylic on canvas · 71 × 100 cm</p>
+    <p class="price">$2,400</p>
+  </div>
+</article><article class="card" data-id="heat-on-water" data-title="Heat on the Water" data-artist-name="Priya Menon" data-category="Painting" data-style="Abstract" data-medium="Acrylic" data-size="Medium" data-orientation="Portrait" data-price="2200" data-year="2026" data-order="11">
+  <div class="card-visual">
+    <a href="artwork.html?id=heat-on-water"><img src="images/art/heat-on-water-640.webp" srcset="images/art/heat-on-water-640.webp 640w, images/art/heat-on-water-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1650" alt="Heat on the Water, Acrylic on canvas by Priya Menon" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="heat-on-water" aria-pressed="false" aria-label="Save Heat on the Water"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=heat-on-water">Heat on the Water</a></h3>
+    <p class="by"><a href="artist.html?artist=priya-menon">Priya Menon</a></p>
+    <p class="meta">Acrylic on canvas · 60 × 90 cm</p>
+    <p class="price">$2,200</p>
+  </div>
+</article><article class="card" data-id="canal-red" data-title="Canal After Red" data-artist-name="Priya Menon" data-category="Painting" data-style="Abstract" data-medium="Acrylic" data-size="Large" data-orientation="Portrait" data-price="2650" data-year="2023" data-order="12">
+  <div class="card-visual">
+    <a href="artwork.html?id=canal-red"><img src="images/art/canal-red-640.webp" srcset="images/art/canal-red-640.webp 640w, images/art/canal-red-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1650" alt="Canal After Red, Acrylic on canvas by Priya Menon" loading="lazy" decoding="async"></a>
+    <p class="sold-mark">Sold</p>
+    <button class="fav" type="button" data-fav="canal-red" aria-pressed="false" aria-label="Save Canal After Red"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=canal-red">Canal After Red</a></h3>
+    <p class="by"><a href="artist.html?artist=priya-menon">Priya Menon</a></p>
+    <p class="meta">Acrylic on canvas · 73 × 110 cm</p>
+    <p class="price">$2,650</p>
+  </div>
+</article><article class="card" data-id="violet-current" data-title="Violet Current" data-artist-name="Lina Voss" data-category="Painting" data-style="Abstract" data-medium="Acrylic" data-size="Medium" data-orientation="Landscape" data-price="1850" data-year="2024" data-order="13">
+  <div class="card-visual">
+    <a href="artwork.html?id=violet-current"><img src="images/art/violet-current-640.webp" srcset="images/art/violet-current-640.webp 640w, images/art/violet-current-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="826" alt="Violet Current, Acrylic on canvas by Lina Voss" loading="lazy" decoding="async"></a>
+    <p class="sold-mark">Sold</p>
+    <button class="fav" type="button" data-fav="violet-current" aria-pressed="false" aria-label="Save Violet Current"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=violet-current">Violet Current</a></h3>
+    <p class="by"><a href="artist.html?artist=lina-voss">Lina Voss</a></p>
+    <p class="meta">Acrylic on canvas · 80 × 60 cm</p>
+    <p class="price">$1,850</p>
+  </div>
+</article><article class="card" data-id="suspended-ink" data-title="Suspended Ink" data-artist-name="Kenji Mori" data-category="Drawing" data-style="Abstract" data-medium="Ink" data-size="Medium" data-orientation="Landscape" data-price="860" data-year="2025" data-order="14">
+  <div class="card-visual">
+    <a href="artwork.html?id=suspended-ink"><img src="images/art/suspended-ink-640.webp" srcset="images/art/suspended-ink-640.webp 640w, images/art/suspended-ink-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="734" alt="Suspended Ink, Ink, archival print by Kenji Mori" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="suspended-ink" aria-pressed="false" aria-label="Save Suspended Ink"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=suspended-ink">Suspended Ink</a></h3>
+    <p class="by"><a href="artist.html?artist=kenji-mori">Kenji Mori</a></p>
+    <p class="meta">Ink, archival print · 70 × 47 cm</p>
+    <p class="price">$860</p>
+  </div>
+</article><article class="card" data-id="fourth-wash" data-title="Fourth Wash" data-artist-name="Kenji Mori" data-category="Drawing" data-style="Minimal" data-medium="Watercolour" data-size="Small" data-orientation="Portrait" data-price="460" data-year="2024" data-order="15">
+  <div class="card-visual">
+    <a href="artwork.html?id=fourth-wash"><img src="images/art/fourth-wash-640.webp" srcset="images/art/fourth-wash-640.webp 640w, images/art/fourth-wash-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1552" alt="Fourth Wash, Watercolour on paper by Kenji Mori" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="fourth-wash" aria-pressed="false" aria-label="Save Fourth Wash"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=fourth-wash">Fourth Wash</a></h3>
+    <p class="by"><a href="artist.html?artist=kenji-mori">Kenji Mori</a></p>
+    <p class="meta">Watercolour on paper · 30 × 42 cm</p>
+    <p class="price">$460</p>
+  </div>
+</article><article class="card" data-id="bloc-notes" data-title="Bloc Notes" data-artist-name="Inès Laurent" data-category="Prints" data-style="Pop" data-medium="Pigment print" data-size="Medium" data-orientation="Landscape" data-price="380" data-year="2025" data-order="16">
+  <div class="card-visual">
+    <a href="artwork.html?id=bloc-notes"><img src="images/art/bloc-notes-640.webp" srcset="images/art/bloc-notes-640.webp 640w, images/art/bloc-notes-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="734" alt="Bloc Notes, Pigment print by Inès Laurent" loading="lazy" decoding="async"></a>
+    <p class="sold-mark">Sold</p>
+    <button class="fav" type="button" data-fav="bloc-notes" aria-pressed="false" aria-label="Save Bloc Notes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=bloc-notes">Bloc Notes</a></h3>
+    <p class="by"><a href="artist.html?artist=ines-laurent">Inès Laurent</a></p>
+    <p class="meta">Pigment print · 70 × 47 cm</p>
+    <p class="price">$380</p>
+  </div>
+</article><article class="card" data-id="five-vessels" data-title="Five Vessels" data-artist-name="Soren Hale" data-category="Sculpture" data-style="Minimal" data-medium="Ceramic" data-size="Small" data-orientation="Landscape" data-price="1280" data-year="2025" data-order="17">
+  <div class="card-visual">
+    <a href="artwork.html?id=five-vessels"><img src="images/art/five-vessels-640.webp" srcset="images/art/five-vessels-640.webp 640w, images/art/five-vessels-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="734" alt="Five Vessels, Stoneware by Soren Hale" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="five-vessels" aria-pressed="false" aria-label="Save Five Vessels"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=five-vessels">Five Vessels</a></h3>
+    <p class="by"><a href="artist.html?artist=soren-hale">Soren Hale</a></p>
+    <p class="meta">Stoneware · 36 × 24 cm</p>
+    <p class="price">$1,280</p>
+  </div>
+</article><article class="card" data-id="gate-early" data-title="A Gate, Early" data-artist-name="Amina Diallo" data-category="Photography" data-style="Minimal" data-medium="Photograph" data-size="Medium" data-orientation="Landscape" data-price="1800" data-year="2025" data-order="18">
+  <div class="card-visual">
+    <a href="artwork.html?id=gate-early"><img src="images/art/gate-early-640.webp" srcset="images/art/gate-early-640.webp 640w, images/art/gate-early-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="734" alt="A Gate, Early, Archival pigment print by Amina Diallo" loading="lazy" decoding="async"></a>
+    <p class="sold-mark">Sold</p>
+    <button class="fav" type="button" data-fav="gate-early" aria-pressed="false" aria-label="Save A Gate, Early"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=gate-early">A Gate, Early</a></h3>
+    <p class="by"><a href="artist.html?artist=amina-diallo">Amina Diallo</a></p>
+    <p class="meta">Archival pigment print · 80 × 53 cm</p>
+    <p class="price">$1,800</p>
+  </div>
+</article><article class="card" data-id="inside-weather" data-title="Inside the Weather" data-artist-name="Amina Diallo" data-category="Photography" data-style="Landscape" data-medium="Photograph" data-size="Medium" data-orientation="Landscape" data-price="1200" data-year="2024" data-order="19">
+  <div class="card-visual">
+    <a href="artwork.html?id=inside-weather"><img src="images/art/inside-weather-640.webp" srcset="images/art/inside-weather-640.webp 640w, images/art/inside-weather-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="734" alt="Inside the Weather, Archival pigment print by Amina Diallo" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="inside-weather" aria-pressed="false" aria-label="Save Inside the Weather"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=inside-weather">Inside the Weather</a></h3>
+    <p class="by"><a href="artist.html?artist=amina-diallo">Amina Diallo</a></p>
+    <p class="meta">Archival pigment print · 90 × 60 cm</p>
+    <p class="price">$1,200</p>
+  </div>
+</article><article class="card" data-id="before-the-crack" data-title="Before the Crack" data-artist-name="Amina Diallo" data-category="Photography" data-style="Landscape" data-medium="Photograph" data-size="Large" data-orientation="Landscape" data-price="2600" data-year="2022" data-order="20">
+  <div class="card-visual">
+    <a href="artwork.html?id=before-the-crack"><img src="images/art/before-the-crack-640.webp" srcset="images/art/before-the-crack-640.webp 640w, images/art/before-the-crack-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="758" alt="Before the Crack, Archival pigment print by Amina Diallo" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="before-the-crack" aria-pressed="false" aria-label="Save Before the Crack"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=before-the-crack">Before the Crack</a></h3>
+    <p class="by"><a href="artist.html?artist=amina-diallo">Amina Diallo</a></p>
+    <p class="meta">Archival pigment print · 110 × 76 cm</p>
+    <p class="price">$2,600</p>
+  </div>
+</article><article class="card" data-id="green-hour" data-title="Green Hour" data-artist-name="Amina Diallo" data-category="Photography" data-style="Landscape" data-medium="Photograph" data-size="Medium" data-orientation="Landscape" data-price="2400" data-year="2026" data-order="21">
+  <div class="card-visual">
+    <a href="artwork.html?id=green-hour"><img src="images/art/green-hour-640.webp" srcset="images/art/green-hour-640.webp 640w, images/art/green-hour-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="732" alt="Green Hour, Archival pigment print by Amina Diallo" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="green-hour" aria-pressed="false" aria-label="Save Green Hour"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=green-hour">Green Hour</a></h3>
+    <p class="by"><a href="artist.html?artist=amina-diallo">Amina Diallo</a></p>
+    <p class="meta">Archival pigment print · 100 × 67 cm</p>
+    <p class="price">$2,400</p>
+  </div>
+</article><article class="card" data-id="repeated-bay" data-title="Repeated Bay" data-artist-name="Jonah Adeyemi" data-category="Photography" data-style="Minimal" data-medium="Photograph" data-size="Medium" data-orientation="Portrait" data-price="980" data-year="2023" data-order="22">
+  <div class="card-visual">
+    <a href="artwork.html?id=repeated-bay"><img src="images/art/repeated-bay-640.webp" srcset="images/art/repeated-bay-640.webp 640w, images/art/repeated-bay-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="1650" alt="Repeated Bay, Archival pigment print by Jonah Adeyemi" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="repeated-bay" aria-pressed="false" aria-label="Save Repeated Bay"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=repeated-bay">Repeated Bay</a></h3>
+    <p class="by"><a href="artist.html?artist=jonah-adeyemi">Jonah Adeyemi</a></p>
+    <p class="meta">Archival pigment print · 47 × 70 cm</p>
+    <p class="price">$980</p>
+  </div>
+</article><article class="card" data-id="cloud-floor" data-title="Cloud Floor" data-artist-name="Amina Diallo" data-category="Photography" data-style="Landscape" data-medium="Photograph" data-size="Medium" data-orientation="Landscape" data-price="1500" data-year="2021" data-order="23">
+  <div class="card-visual">
+    <a href="artwork.html?id=cloud-floor"><img src="images/art/cloud-floor-640.webp" srcset="images/art/cloud-floor-640.webp 640w, images/art/cloud-floor-1100.webp 1100w" sizes="(max-width: 720px) 340px, (max-width: 1100px) 42vw, 28vw" width="1100" height="734" alt="Cloud Floor, Archival pigment print by Amina Diallo" loading="lazy" decoding="async"></a>
+    
+    <button class="fav" type="button" data-fav="cloud-floor" aria-pressed="false" aria-label="Save Cloud Floor"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"></path></svg></button>
+  </div>
+  <div class="card-body">
+    <h3><a href="artwork.html?id=cloud-floor">Cloud Floor</a></h3>
+    <p class="by"><a href="artist.html?artist=amina-diallo">Amina Diallo</a></p>
+    <p class="meta">Archival pigment print · 100 × 67 cm</p>
+    <p class="price">$1,500</p>
+  </div>
+</article></div>
+      <div class="empty" id="empty" hidden>
+        <h2>Nothing in this edit.</h2>
+        <p>Clear a filter, or return to the full catalogue.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h2>Artvue</h2>
+      <p>Demo marketplace: fictional artists and illustrative prices. A catalogue for looking, and for a conversation on WhatsApp. No cart and no payment.</p>
+    </div>
+    <div>
+      <a href="browse.html">Catalogue</a>
+      <a href="about.html">How it works</a>
+      <a href="sell.html">Sell your art</a>
+      <a href="credits.html">Image credits</a>
+    </div>
+    <div>
+      <a href="browse.html?category=Painting">Paintings</a>
+      <a href="browse.html?category=Drawing">Drawings</a>
+      <a href="browse.html?category=Photography">Photography</a>
+      <a href="browse.html?style=Abstract">Abstract</a>
+    </div>
+    <div>
+      <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20have%20a%20question%20about%20the%20marketplace.">Contact on WhatsApp</a>
+      <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20would%20like%20to%20request%20a%20commission.">Request a commission</a>
+      <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20would%20like%20to%20apply%20to%20sell%20my%20art.%20I%20will%20send%20my%20name%2C%20city%2C%20and%20three%20works.">Artist application</a>
+    </div>
+  </div>
+  <p class="fine">© 2026 Artvue. Fictional artists. Photographs are stock sources listed on the credits page, used here as illustrations.</p>
+</footer>
+<a class="wa-float" href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20have%20a%20question%20about%20the%20marketplace." aria-label="Contact Artvue on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#f7f4ed" stroke-width="1.6"><path d="M5 16.5 3.5 20.5 8 18.5A8 8 0 1 0 5 16.5Z"></path></svg></a>
+  <script src="js/site.js"></script>
+  <script src="js/browse.js"></script>
+</body>
+</html>

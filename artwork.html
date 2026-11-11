@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artwork — Artvue</title>
+  <meta name="description" content="View a work from the Artvue demo catalogue: image, medium, size, and price, then inquire on WhatsApp.">
+  <link rel="canonical" href="https://mohammedbagowabair.github.io/Artvue-Art-Marketplace-Website/artwork.html">
+  <meta property="og:title" content="Artwork — Artvue">
+  <meta property="og:description" content="View a work from the Artvue demo catalogue: image, medium, size, and price, then inquire on WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohammedbagowabair.github.io/Artvue-Art-Marketplace-Website/artwork.html">
+  <meta property="og:image" content="https://mohammedbagowabair.github.io/Artvue-Art-Marketplace-Website/images/art/harbour-weather-1100.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f3efe6">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<p class="demo-note">Demo marketplace: fictional artists and illustrative prices.</p>
+<header class="site-header">
+  <a class="logo" href="index.html">Artvue<span></span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" aria-label="Primary"><a href="browse.html?category=Painting">Paintings</a><a href="browse.html?category=Drawing">Drawings</a><a href="browse.html?category=Photography">Photography</a><a href="browse.html?category=Prints">Prints</a><a href="browse.html?category=Sculpture">Sculpture</a><a href="index.html#artists">Artists</a><a href="about.html">About</a><a href="sell.html">Sell</a></nav>
+  <div class="header-tools">
+    <a class="tool-search" href="browse.html">Search</a>
+    <a href="browse.html?saved=1">Saved <span class="saved-count" id="saved-count">0</span></a>
+    <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20have%20a%20question%20about%20the%20marketplace.">Contact</a>
+  </div>
+</header>
+<div class="backdrop"></div>
+<main id="content" class="page">
+  <article class="lot" id="lot"><p>Opening the work…</p></article>
+  <section class="more" id="more" aria-label="More from this artist"></section>
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged view">
+    <div class="lightbox-bar">
+      <p id="lightbox-caption" style="margin:0">Click the picture to look closer.</p>
+      <button class="btn btn-ghost" type="button" id="close-lightbox">Close</button>
+    </div>
+    <div class="lightbox-frame"><img id="lightbox-img" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+  </dialog>
+</main>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h2>Artvue</h2>
+      <p>Demo marketplace: fictional artists and illustrative prices. A catalogue for looking, and for a conversation on WhatsApp. No cart and no payment.</p>
+    </div>
+    <div>
+      <a href="browse.html">Catalogue</a>
+      <a href="about.html">How it works</a>
+      <a href="sell.html">Sell your art</a>
+      <a href="credits.html">Image credits</a>
+    </div>
+    <div>
+      <a href="browse.html?category=Painting">Paintings</a>
+      <a href="browse.html?category=Drawing">Drawings</a>
+      <a href="browse.html?category=Photography">Photography</a>
+      <a href="browse.html?style=Abstract">Abstract</a>
+    </div>
+    <div>
+      <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20have%20a%20question%20about%20the%20marketplace.">Contact on WhatsApp</a>
+      <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20would%20like%20to%20request%20a%20commission.">Request a commission</a>
+      <a href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20would%20like%20to%20apply%20to%20sell%20my%20art.%20I%20will%20send%20my%20name%2C%20city%2C%20and%20three%20works.">Artist application</a>
+    </div>
+  </div>
+  <p class="fine">© 2026 Artvue. Fictional artists. Photographs are stock sources listed on the credits page, used here as illustrations.</p>
+</footer>
+<a class="wa-float" href="https://wa.me/967783964784?text=Hello%20Artvue%2C%20I%20have%20a%20question%20about%20the%20marketplace." aria-label="Contact Artvue on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#f7f4ed" stroke-width="1.6"><path d="M5 16.5 3.5 20.5 8 18.5A8 8 0 1 0 5 16.5Z"></path></svg></a>
+  <script src="js/catalog.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/artwork.js"></script>
+</body>
+</html>
